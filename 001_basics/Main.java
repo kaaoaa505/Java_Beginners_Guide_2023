@@ -21,5 +21,14 @@ public class Main {
         }else{
             System.out.println("My number is less than 33");
         }
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
+        }
+
+        String[] items = {"item1", "item2", "item3"};
+        for (String item : items) {
+            System.out.println(item);
+        }
     }
 }
