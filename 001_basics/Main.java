@@ -13,5 +13,13 @@ public class Main {
         System.out.println(is_it_true);
 
         System.out.println(my_string + ' ' + my_number + " " + is_it_true);
+
+        if(my_number >= 34){
+            System.out.println("My number is larger than 34");
+        }else if(my_number == 33){
+            System.out.println("My number is 33");
+        }else{
+            System.out.println("My number is less than 33");
+        }
     }
 }
