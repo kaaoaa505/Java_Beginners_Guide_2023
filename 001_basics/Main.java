@@ -30,5 +30,17 @@ public class Main {
         for (String item : items) {
             System.out.println(item);
         }
+        
+        int j = 0;
+        while (j < 5) {
+            j++;
+            System.out.println(j);
+        }
+        
+        j = 1000;
+        do{
+            j++;
+            System.out.println(j);
+        }while (j < 1005);
     }
 }
