@@ -15,8 +15,9 @@ import javafx.stage.Stage;
 
 public class HelloApplication extends Application implements EventHandler<ActionEvent> {
     Button my_button;
-    Label my_label;
-    TextField my_text_field;
+    Label result_label;
+    TextField user_name;
+    TextField password;
 
     int counter = 0;
 
@@ -30,21 +31,29 @@ public class HelloApplication extends Application implements EventHandler<Action
         my_button.setText("just for test");
         my_button.setOnAction(this);
 
-        my_label = new Label();
-        my_label.setText("Show result here...");
+        result_label = new Label();
+        result_label.setText("Show result here...");
 
-        my_text_field = new TextField();
-        my_text_field.setText("Write your text here...");
+        user_name = new TextField();
+        user_name.setText("User name here...");
 
-        HBox my_box = new HBox();
-        my_box.getChildren().addAll(my_button, my_label, my_text_field);
-        my_box.setSpacing(5);
+        password = new TextField();
+        password.setText("Password here...");
+
+        HBox username_box = new HBox(10);
+        username_box.getChildren().addAll(new Label("User Name:"), user_name);
+
+        HBox password_box = new HBox(10);
+        password_box.getChildren().addAll(new Label("password:"), password);
+        password_box.setPadding(new Insets(0, 0, 0, 9));
 
         GridPane my_grid = new GridPane();
-        my_grid.getChildren().add(my_box);
-        my_grid.setHgap(15);
-        my_grid.setVgap(15);
-        my_grid.setPadding(new Insets(10, 10, 10, 10));
+        my_grid.add(username_box, 0, 0);
+        my_grid.add(password_box, 0, 1);
+        my_grid.add(my_button, 0, 2);
+        my_grid.add(result_label, 0, 3);
+        my_grid.setPadding(new Insets(10,10,10,10));
+        my_grid.setVgap(5);
 
         StackPane ui = new StackPane();
         ui.getChildren().add(my_grid);
@@ -63,7 +72,7 @@ public class HelloApplication extends Application implements EventHandler<Action
     public void handle(ActionEvent activeEvent) {
         if (activeEvent.getSource() == my_button) {
             counter++;
-            my_label.setText("my button clicked: " + counter + " times.");
+            result_label.setText("my button clicked: " + counter + " times.");
         }
     }
 }
