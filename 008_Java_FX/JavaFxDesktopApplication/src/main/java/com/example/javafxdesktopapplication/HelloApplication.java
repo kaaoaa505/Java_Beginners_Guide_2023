@@ -3,28 +3,25 @@ package com.example.javafxdesktopapplication;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class HelloApplication extends Application implements EventHandler<ActionEvent> {
     Button my_button;
     Label my_label;
     TextField my_text_field;
 
-    HBox my_box;
-
     int counter = 0;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 //        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 //        stage.setScene(scene);
@@ -39,12 +36,18 @@ public class HelloApplication extends Application implements EventHandler<Action
         my_text_field = new TextField();
         my_text_field.setText("Write your text here...");
 
-        my_box = new HBox();
+        HBox my_box = new HBox();
         my_box.getChildren().addAll(my_button, my_label, my_text_field);
-        my_box.setSpacing(10);
+        my_box.setSpacing(5);
+
+        GridPane my_grid = new GridPane();
+        my_grid.getChildren().add(my_box);
+        my_grid.setHgap(15);
+        my_grid.setVgap(15);
+        my_grid.setPadding(new Insets(10, 10, 10, 10));
 
         StackPane ui = new StackPane();
-        ui.getChildren().add(my_box);
+        ui.getChildren().add(my_grid);
 
         Scene scene = new Scene(ui, 500, 500);
         stage.setScene(scene);
