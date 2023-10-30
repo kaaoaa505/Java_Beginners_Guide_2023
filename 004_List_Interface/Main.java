@@ -3,27 +3,29 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("list interface...");
+        System.out.println("____________________________");
+        
+        System.out.println("List ==>> new ArrayList<>() interface...");
         System.out.println("----------------------------");
 
-        List<String> list = new ArrayList<>();
-        list.add("Hello");
-        list.add(" ");
-        list.add("World");
-        list.add("!.");
+        List<String> array_list = new ArrayList<>();
+        array_list.add("Hello");
+        array_list.add(" ");
+        array_list.add("World");
+        array_list.add("!.");
 
-        System.out.println(list);
+        System.out.println(array_list);
         System.out.println("----------------------------");
 
-        System.out.println(list.get(0) + list.get(1) + list.get(2) + list.get(3));
+        System.out.println(array_list.get(0) + array_list.get(1) + array_list.get(2) + array_list.get(3));
         System.out.println("----------------------------");
 
-        for (String item : list) {
+        for (String item : array_list) {
             System.out.println("For loop item is: " + item);
         }
         System.out.println("----------------------------");
 
-        list.forEach(item -> {
+        array_list.forEach(item -> {
             System.out.println("For each item is: " + item);
         });
         System.out.println("----------------------------");
