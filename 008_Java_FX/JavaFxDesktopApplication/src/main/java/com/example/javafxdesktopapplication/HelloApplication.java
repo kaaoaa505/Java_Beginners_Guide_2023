@@ -3,6 +3,7 @@ package com.example.javafxdesktopapplication;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,6 +13,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.io.File;
+import java.io.IOException;
 
 public class HelloApplication extends Application implements EventHandler<ActionEvent> {
     Button my_button;
@@ -52,13 +56,18 @@ public class HelloApplication extends Application implements EventHandler<Action
         my_grid.add(password_box, 0, 1);
         my_grid.add(my_button, 0, 2);
         my_grid.add(result_label, 0, 3);
-        my_grid.setPadding(new Insets(10,10,10,10));
+        my_grid.setPadding(new Insets(10, 10, 10, 10));
         my_grid.setVgap(5);
 
         StackPane ui = new StackPane();
         ui.getChildren().add(my_grid);
 
         Scene scene = new Scene(ui, 500, 500);
+
+        File css = new File("stylesheet.css");
+        System.out.println(css.getAbsolutePath());
+
+        scene.getStylesheets().add("file:///" + css.getAbsolutePath().replace("\\", "/"));
         stage.setScene(scene);
         stage.setTitle("First Desktop Application!.");
         stage.show();
