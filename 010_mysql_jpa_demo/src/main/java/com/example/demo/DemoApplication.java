@@ -27,7 +27,7 @@ public class DemoApplication implements CommandLineRunner {
 
         System.out.println(count);
 
-        this.usersAdapter.setUser("f" + count, "l" + count, "U" + count, "P" + count);
+        this.usersAdapter.setUser("First" + count, "last" + count, "Uname" + count, "Pass" + count);
 
         System.out.println(this.usersAdapter.getUsers());
 
