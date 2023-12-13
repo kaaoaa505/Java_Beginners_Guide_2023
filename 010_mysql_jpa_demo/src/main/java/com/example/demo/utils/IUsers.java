@@ -2,5 +2,5 @@ package com.example.demo.utils;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface GetUsers extends CrudRepository<Users, Integer> {
+public interface IUsers extends CrudRepository<Users, Integer> {
 }

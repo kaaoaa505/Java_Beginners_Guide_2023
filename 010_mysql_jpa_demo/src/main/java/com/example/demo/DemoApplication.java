@@ -7,17 +7,30 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
-	@Autowired
-	UsersAdapterImpl usersAdapter;
+    @Autowired
+    UsersAdapterImpl usersAdapter;
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
-	@Override
-	public void run(String... args) throws Exception {
-		System.out.println("********************************************************");
-		System.out.println(this.usersAdapter.getUsers());
-		System.out.println("________________________________________________________");
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("********************************************************");
+        var users = this.usersAdapter.getUsers();
+        System.out.println(users);
+
+        int count = 0;
+        for (var ignored : users) {
+            count++;
+        }
+
+        System.out.println(count);
+
+        this.usersAdapter.setUser("f" + count, "l" + count, "U" + count, "P" + count);
+
+        System.out.println(this.usersAdapter.getUsers());
+
+        System.out.println("________________________________________________________");
+    }
 }
